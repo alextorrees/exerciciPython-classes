@@ -1,15 +1,18 @@
 import json
 
-import character
 
-ruta_archivo = "StarWars.json"
+def read_characters():
+    file = open('StarWars.json')
+    data = json.load(file)
+    for fields in data:
+        print("Hola")
+        for character in fields:
+            print("Hola2")
+            print(character.gender, character.home_world, character.birth_year)
 
-def leer_archivo_json(ruta_archivo):
-    with open(ruta_archivo, "r") as archivo:
-        datos = json.load(archivo)
 
-        return datos
+def main():
+    read_characters()
 
-def __init__():
-    leer_archivo_json(ruta_archivo)
-    character.print_info()
+
+main()

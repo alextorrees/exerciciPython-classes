@@ -2,26 +2,45 @@ import json
 
 
 class Character:
-    ruta_archivo = "StarWars.json"
+    _edited = None
+    _name = None
+    _created = None
+    _gender = None
+    _skin_color = None
+    _hair_color = None
+    _height = None
+    _eye_color = None
+    _mass = None
+    _home_world = None
+    _birth_year = None
 
-    def leer_archivo_json(ruta_archivo):
-        with open(ruta_archivo, "r") as archivo:
-            datos = json.load(archivo)
-            return datos
+    def __init__(self, edited, name, created, gender, skin_color, hair_color, height, eye_color, mass, homeworld, birth_year):
+        self._edited = edited
+        self._name = name
+        self._created = created
+        self._gender = gender
+        self._skin_color = skin_color
+        self._hair_color = hair_color
+        self._height = height
+        self._eye_color = eye_color
+        self._mass = mass
+        self._home_world = homeworld
+        self._birth_year = birth_year
 
-    def __init__(self, datos):
-        self.edited = datos['edited']
-        self.name = datos['name']
-        self.created = datos['created']
-        self.gender = datos['gender']
-        self.skin_color = datos['skin_color']
-        self.hair_color = datos['hair_color']
-        self.height = datos['height']
-        self.eye_color = datos['eye_color']
-        self.mass = datos['mass']
-        self.home_world = datos['homeworld']
-        self.birth_year = datos['birth_year']
+    @property
+    def name(self):
+        return f"Name: {self._name}, "
 
-    def print_info(self):
-        character = self.name, self.gender, self.home_world, self.birth_year
-        print(character)
+    @property
+    def gender(self):
+        return f"gender: {self._gender}, "
+
+    @property
+    def home_world(self):
+        return f"home World: {self._home_world}, "
+
+    @property
+    def birth_year(self):
+        return f"birth Year: {self._birth_year}, "
+
+
