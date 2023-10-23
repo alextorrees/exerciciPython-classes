@@ -29,18 +29,18 @@ class Character:
 
     @property
     def name(self):
-        return f"Name: {self._name}, "
+        return self._name
 
     @property
     def gender(self):
-        return f"gender: {self._gender}, "
+        return self._gender
 
     @property
     def home_world(self):
-        return f"home World: {self._home_world}, "
+        return self._home_world
 
     @property
     def birth_year(self):
-        return f"birth Year: {self._birth_year}, "
+        return self._birth_year
 
 
