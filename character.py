@@ -1,6 +1,3 @@
-import json
-
-
 class Character:
     _edited = None
     _name = None
