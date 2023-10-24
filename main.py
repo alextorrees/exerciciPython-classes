@@ -38,6 +38,8 @@ def create_json_characters(characters):
 
     with open('NewStarWars.json', 'w') as archivo_json:
         archivo_json.write(datos_json)
+        print("Archivo JSON 'NewStarWars.json' creado.")
+
 def main():
     json_filename = 'StarWars.json'
     characters = load_characters(json_filename)
