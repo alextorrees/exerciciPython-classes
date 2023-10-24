@@ -1,4 +1,6 @@
 import json
+import os
+
 from character import Character
 from character_films import CharacterFilms
 
@@ -33,17 +35,23 @@ def update_characters_info(characters):
         print(f"Personaje --> {character.name}, {character.gender}, {character.home_world}, {character.birth_year}, {character.num_of_films}, {character.first_film}, {character.alive_at_the_end}")
 
 def create_json_characters(characters):
+    if os.path.exists('NewStarWars.json'):
+        return True
 
-    datos_json = json.dumps([character.__dict__ for character in characters])
-
-    with open('NewStarWars.json', 'w') as archivo_json:
-        archivo_json.write(datos_json)
-        print("Archivo JSON 'NewStarWars.json' creado.")
+    else:
+        datos_json = json.dumps([character.__dict__ for character in characters])
+        with open('NewStarWars.json', 'w') as archivo_json:
+            archivo_json.write(datos_json)
+            return False
 
 def main():
     json_filename = 'StarWars.json'
     characters = load_characters(json_filename)
+
     update_characters_info(characters)
-    create_json_characters(characters)
+    if create_json_characters(characters) == True:
+        print("Archivo Json ya fue creado")
+    else:
+        print("Archivo Json creado correctamente")
 
 main()
